@@ -11,6 +11,12 @@ pygame.display.set_caption(title)
 clock = pygame.time.Clock()
 black = (0,0,0)
 white = (255,255,255)
+
+def tup_r(tup):
+    temp_list = []
+    for a in tup:
+        temp_list.append(round(a))
+    return tuple(temp_list)
 exit = False
 #4. 메인 이벤트
 while not exit:
@@ -22,7 +28,15 @@ while not exit:
             exit = True
 #4-3. 입력, 시간에 따른 변화
 #4-4. 그리기
-    screen.fill(white)
+    screen.fill(black)
+    A=tup_r((0,size[1]*2/3))
+    B=(size[0], size[1]*2/3)
+    C=tup_r((size[0]/6, A[1]))
+    D=(C[0],c[0])
+    E=tup_r((size[0]/2,D[1]))
+    pygame.draw.line(screen, white, A,B,3)
+    pygame.draw.line(screen, white, C,D,3)
+    pygame.draw.line(screen, white, D,E,3)
 #4-5. 업데이트
     pygame.display.flip()
 #5. 게임종료
